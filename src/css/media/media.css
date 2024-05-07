@@ -1,0 +1,13 @@
+@media (min-width: 769px) and (max-width: 1240px) {
+   .benefit__items {
+      display: flex !important;
+      grid-gap: 0;
+   }
+}
+@media (max-width: 768px) {
+   .benefit__items {
+      display: flex !important;
+      grid-gap: 0;
+   }
+   
+}

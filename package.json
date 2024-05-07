@@ -4,7 +4,7 @@
   "description": "Your project description",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass --output-style compressed src/scss -o src/css"
+    "sass:watch": "node-sass --output-style compressed --watch src/scss -o src/css"
   },
   "author": "Your Name",
   "license": "MIT",
