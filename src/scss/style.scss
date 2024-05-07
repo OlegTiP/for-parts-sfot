@@ -339,3 +339,44 @@ body {
    }
 }
 
+.footer {
+   position: relative;
+   width: 100vw;
+   left: 50%;
+   transform: translateX(-50%);
+   background: $dark-grey;
+   height: 420px;
+
+   &__inner {
+      padding: 88px 60px;
+      margin: 0 auto;
+      max-width: 1368px;
+   }
+   &__logo a:link, 
+   &__logo a:visited {
+      margin-bottom: 42px;
+      display: block;
+      font-size: 25px;
+      font-weight: 700;
+      color: $white;
+      text-decoration: none;
+   }
+   &__soc-icons {
+      display: flex;
+      gap: 34px;
+   }
+   &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 320px;
+   }
+   &__copy {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $white;
+      line-height: 19px;
+   }
+}
