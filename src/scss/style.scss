@@ -1,6 +1,8 @@
 @import "variables";
 
+
 body {
+   scrollbar-gutter: stable;
    margin: 0;
    overflow-x: hidden;
    background: #EFF0EF;
@@ -216,7 +218,7 @@ body.stop-skroll {
       top: 50%;
       transform: translateY(-50%);
    }
-   &__search span {
+   &__search button {
       position: absolute;
       display: flex;
       right: 0;
@@ -230,6 +232,7 @@ body.stop-skroll {
       background-repeat: no-repeat;
       background-position: center;
       background-size: 18.5px;
+      cursor: pointer;
    }
    &__logo a:link,
    &__logo a:visited {
