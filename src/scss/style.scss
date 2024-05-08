@@ -6,6 +6,9 @@ body {
    background: #EFF0EF;
    font-family: "Roboto", sans-serif;
 }
+body.stop-skroll {
+   overflow: hidden;
+}
 
 * {
    margin: 0;
@@ -20,6 +23,7 @@ body {
 
    @media (max-width: $tablet) {
       padding: 10px 0;
+      padding-top: 0;
    }
 }
 
@@ -38,6 +42,17 @@ body {
 
       @media (max-width: $tablet) {
          display: none;
+         position: absolute;
+         transform: translateX(50%);
+         width: 100%;
+         height: 100vh;
+         transition: transform .3s ease-in-out;
+
+         &.active {
+            transform: translateX(0);
+            display: block;
+            z-index: 100;
+         }
       }
    }
    &__top {
@@ -46,10 +61,20 @@ body {
       padding: 0 20px;
       margin: 0 auto;
       max-width: 1368px;
+
+      @media (max-width: $tablet) {
+         flex-direction: column;
+      }
    }
    &__nav {
       display: flex;
       gap: 60px;
+
+      @media (max-width: $tablet) {
+         margin-bottom: 100px;
+         flex-direction: column;
+         gap: 10px;
+      }
    }
    &__item {
       position: relative;
@@ -59,6 +84,11 @@ body {
       font-size: 16px;
       font-weight: 400;
       transition: color .3s ease-in-out;
+
+      @media (max-width: $tablet) {
+         padding-right: 30px;
+         font-size: 22px;
+      }
       & {
          &:not(:last-child)::after {
             content: '';
@@ -91,6 +121,10 @@ body {
       font-weight: 700;
       line-height: 21px;
       text-decoration: none;
+
+      @media (max-width: $tablet) {
+         font-size: 24px;
+      }
    }
    &__tel a:hover,
    &__tel a:active {
@@ -103,6 +137,10 @@ body {
       font-size: 16px;
       font-weight: 400;
       line-height: 21px;
+
+      @media (max-width: $tablet) {
+         margin-bottom: 50px;
+      }
    }
    &__city::before {
       content: '';
@@ -277,6 +315,12 @@ body {
       border-radius: 23px;
       border: 1px solid #BFBFBF;
       z-index: 2;
+
+      @media (max-width: $tablet) {
+         position: static;
+         transform: none;
+         border: none;
+      }
    }
    &__item2 {
       margin-bottom: 7px;
@@ -287,6 +331,10 @@ body {
       font-size: 16px;
       line-height: 21px;
       text-decoration: none;
+
+      @media (max-width: $tablet) {
+         border: none;
+      }
 
       &:hover {
          color: $orange;
@@ -530,3 +578,22 @@ body {
    }
 }
 
+.burger-menu__icon {
+   display: none;
+   cursor: pointer;
+ }
+ 
+ .burger-menu__list {
+   display: block;
+ }
+ 
+ @media screen and (max-width: $tablet) {
+   .burger-menu__list {
+     display: none;
+   }
+ 
+   .burger-menu__icon {
+     display: block;
+   }
+ }
+ 

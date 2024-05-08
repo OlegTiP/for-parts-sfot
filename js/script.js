@@ -18,12 +18,17 @@ $(document).ready(function(){
    });
  });
  
+//  burger menu
+ $(document).ready(function() {
+   $('.header__burger').click(function() {
+     $('.header__top-wrapper').toggleClass('active');
+     $('body').toggleClass('stop-skroll');
+   });
+ });
  
  
- 
-
-// manufacturers
-const swiperManufacturers = new Swiper('.js-cards', {
+// swiper cards
+const swiperCards = new Swiper('.js-cards', {
    // Optional parameters
    loop: true,
    slidesPerView: 4,
@@ -68,72 +73,3 @@ const swiperManufacturers = new Swiper('.js-cards', {
 
 });
 
-// const swiper = new Swiper('.js-swiper', {
-//    // Optional parameters
-//    loop: true,
-//    slidesPerView: 5,
-//    autoHeight: true,
-//    spaceBetween: 18,
-
-//    pagination: {
-//       el: '.swiper-pagination',
-//    },
-
-//    navigation: {
-//       nextEl: '.swiper-button-next',
-//       prevEl: '.swiper-button-prev',
-//    },
-
-//    scrollbar: {
-//       el: '.swiper-scrollbar',
-//    },
-//    breakpoints: {
-//       320: {
-//          slidesPerView: 1
-//       },
-//       768: {
-//          slidesPerView: 2
-//       }
-//    },
-
-// });
-
-// if (window.innerWidth < 1239) {
-//    const swiperBenefit = new Swiper('.js-benefit', {
-//       // Optional parameters
-//       loop: true,
-//       slidesPerView: 3,
-//       autoHeight: true,
-//       slidesPerView: 3,
-//       spaceBetween: 10,
-
-//       // If we need pagination
-//       pagination: {
-//          el: '.swiper-pagination',
-//       },
-
-//       // Navigation arrows
-//       navigation: {
-//          nextEl: '.swiper-button-next',
-//          prevEl: '.swiper-button-prev',
-//       },
-
-//       // And if we need scrollbar
-//       scrollbar: {
-//          el: '.swiper-scrollbar',
-//       },
-//       breakpoints: {
-//          340: {
-//             slidesPerView: 1
-//          },
-//          768: {
-//             slidesPerView: 2
-//          },
-//          1240: {
-//             slidesPerView: 2
-//          },
-//       },
-
-//    });
-
-// };
