@@ -2,6 +2,7 @@
 
 body {
    margin: 0;
+   overflow-x: hidden;
    background: #EFF0EF;
    font-family: "Roboto", sans-serif;
 }
@@ -16,6 +17,10 @@ body {
    padding: 0 10px;
    margin: 0 auto;
    max-width: 1368px;
+
+   @media (max-width: $tablet) {
+      padding: 10px 0;
+   }
 }
 
 .wrapper {
@@ -29,6 +34,11 @@ body {
    &__top-wrapper {
       background: $white;
       padding: 15px 0;
+      z-index: 2;
+
+      @media (max-width: $tablet) {
+         display: none;
+      }
    }
    &__top {
       display: flex;
@@ -50,7 +60,7 @@ body {
       font-weight: 400;
       transition: color .3s ease-in-out;
       & {
-         &:not(:last-child):after {
+         &:not(:last-child)::after {
             content: '';
             display: block;
             position: absolute;
@@ -63,11 +73,17 @@ body {
             background-size: contain;
             width: 16px;
             height: 10px;
+            transform-origin: top;
+            transition: transform .3s ease-in-out;
          }
       }
    }
    &__item:hover {
       color: $orange;
+   }
+   &__item.active::after {
+      transform: rotate(90deg);
+      transform-origin: top;
    }
    &__tel a:link,
    &__tel a:visited {
@@ -103,7 +119,10 @@ body {
    &__bottom-wrapper {
       padding: 16px 14px;
       background: $dark-grey;
-      z-index: -1;
+
+      @media (max-width: $tablet) {
+         padding: 16px 0;
+      }
    }
    &__bottom {
       padding: 0 20px;
@@ -111,9 +130,16 @@ body {
       max-width: 1368px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
    }
    &__search {
       position: relative;
+
+      @media (max-width: $tablet) {
+         position: absolute;
+         top: 87px;
+         width: 90%;
+      }
    }
    &__search input {
       position: relative;
@@ -127,9 +153,20 @@ body {
       text-decoration: underline;
       text-align: right;
       width: 550px;
+
+      @media (max-width: $tablet) {
+         width: 100%;
+         &::placeholder {
+            opacity: 0;
+          }
+      }
    }
    &__search input:focus {
       width: 640px;
+
+      @media (max-width: $tablet) {
+         width: 100%;
+      }
    }
    &__search::before {
       content: 'Поиск';
@@ -162,6 +199,14 @@ body {
       font-weight: 700;
       color: $white;
       text-decoration: none;
+
+      @media (max-width: $sm-desktop) {
+         padding-left: 120px;
+      }
+
+      @media (max-width: $tablet) {
+         padding-left: 65px;
+      }
    }
    &__links {
       display: flex;
@@ -177,6 +222,14 @@ body {
       width: 40px;
       height: 40px;
    
+   }
+   &__burger {
+      display: none;
+      cursor: pointer;
+      
+      @media (max-width: $tablet) {
+         display: block;
+      }
    }
    &__auth {
       background: url('/img/parts-soft_cart.svg');
@@ -219,17 +272,35 @@ body {
       display: none;
       padding: 10px 20px;
       position: absolute;
-      transform: translateX(-50px);
+      transform: translateX(-50px) translateY(5px);
       background: $white;
       border-radius: 23px;
       border: 1px solid #BFBFBF;
       z-index: 2;
+   }
+   &__item2 {
+      margin-bottom: 7px;
+      display: block;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #E6E6E6;
+      color: $black;
+      font-size: 16px;
+      line-height: 21px;
+      text-decoration: none;
+
+      &:hover {
+         color: $orange;
+      }
    }
 }
 
 .main {
    padding: 10px;
    background: $white;
+
+   @media (max-width: $tablet) {
+      padding: 20px;
+   }
    .title-h2 {
       padding: 52px 35px;
       padding-left: 30px;
@@ -237,10 +308,16 @@ body {
       font-size: 24px;
       font-weight: 700;
       line-height: 21px;
+
+      @media (max-width: $tablet) {
+         padding-top: 102px;
+         padding-bottom: 20px;
+      }
    }
    .cards {
       &__items {
          margin-bottom: 52px;
+         position: relative;
          overflow: hidden;
       }
       &__item {
@@ -252,6 +329,11 @@ body {
          height: 100% !important;
          gap: 30px;
          border-radius: 10px;
+         transition: background .3s ease-in-out;
+
+         &:hover {
+            background: $grey;
+         }
       }
       &__imgbox {
          margin-bottom: 15px;
@@ -318,6 +400,38 @@ body {
             background: $dark-grey;
          }
       }
+      .swiper-button-next:after, 
+      .swiper-rtl .swiper-button-prev:after {
+         content: '';
+         background: url('/img/parts-soft_swiper-next.svg');
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+         width: 45px;
+         height: 45px;
+      }
+      .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+         content: '';
+         background: url('/img/parts-soft_swiper-prev.svg');
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+         width: 45px;
+         height: 45px;
+      }
+      .swiper-button-next, 
+      .swiper-button-prev {
+         width: 45px;
+         &:hover {
+            filter: brightness(1.1);
+         }
+      }
+      // .swiper-button-prev {
+      //    left: 20px;
+      // }
+      // .swiper-button-next {
+      //    right: 20px;
+      // }
    }
 
    .about {
@@ -326,6 +440,11 @@ body {
       border: 1px solid #BFBFBF;
       border-left: none;
       border-right: none; 
+
+      @media (max-width: $tablet) {
+         margin-bottom: 239px;
+         padding: 20px 0px;
+      }
 
       & .title-h2 {
          margin-bottom: 15px;
@@ -347,10 +466,19 @@ body {
    background: $dark-grey;
    height: 420px;
 
+   @media (max-width: $tablet) {
+      height: auto;
+   }
+   
    &__inner {
-      padding: 88px 60px;
+      padding: 88px 20px;
       margin: 0 auto;
       max-width: 1368px;
+      
+      @media (max-width: $tablet) {
+         padding-top: 192px;
+         padding-bottom: 15px;
+      }
    }
    &__logo a:link, 
    &__logo a:visited {
@@ -365,11 +493,25 @@ body {
       display: flex;
       gap: 34px;
    }
+   &__soc-icon img {
+      transition: filter .3s ease-in-out;
+   }
+   &__soc-icon img:hover {
+      filter: brightness(1.5);
+   }
    &__wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 320px;
+
+      @media (max-width: $sm-desktop) {
+         width: 220px;
+      }
+      @media (max-width: $tablet) {
+         margin-bottom: 35px;
+         width: auto;
+      }
    }
    &__copy {
       position: absolute;
@@ -378,5 +520,13 @@ body {
       transform: translateX(-50%);
       color: $white;
       line-height: 19px;
+
+      @media (max-width: $tablet) {
+         position: static;
+         transform: none;
+         display: flex;
+         justify-content: center;
+      }
    }
 }
+
