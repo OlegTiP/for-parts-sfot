@@ -326,14 +326,18 @@ body.stop-skroll {
       }
    }
    &__item2 {
-      margin-bottom: 7px;
       display: block;
       padding-bottom: 7px;
-      border-bottom: 1px solid #E6E6E6;
       color: $black;
       font-size: 16px;
       line-height: 21px;
       text-decoration: none;
+      
+      &:not(:last-child) {
+         margin-bottom: 7px;
+         border-bottom: 1px solid #E6E6E6;
+
+      }
 
       @media (max-width: $tablet) {
          border: none;
